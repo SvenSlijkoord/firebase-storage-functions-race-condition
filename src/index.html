@@ -1,0 +1,50 @@
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script>
+	// Initialize Firebase
+	// TODO: Replace with your project's customized code snippet
+	var config = {
+		apiKey: "AIzaSyBMlvvQG50PZUQTw2h-b8y9pDRLZxAyz-0",
+		authDomain: "storage-funcs-race-condition.firebaseapp.com",
+		databaseURL: "https://storage-funcs-race-condition.firebaseio.com",
+		projectId: "storage-funcs-race-condition",
+		storageBucket: "storage-funcs-race-condition.appspot.com",
+		messagingSenderId: "631901056081"
+	};
+	firebase.initializeApp(config);
+
+	var storageRef = firebase.storage().ref();
+
+	function getFilenameFromInput() {
+		var input = document.querySelector('#filename');
+		return input.value;
+	}
+
+	function getFileRefByFilename(filename) {
+		return storageRef.child(filename);
+	}
+
+	function uploadFile() {
+		var fileRef = getFileRefByFilename(getFilenameFromInput());
+		fileRef.putString('test message')
+			.then(function (snapshot) {
+				console.log('Uploaded a raw string!:', snapshot);
+			})
+			.catch(function (error) {
+				console.error('Uh-oh, an error occurred!:', error);
+			});
+	}
+	function deleteFile() {
+		var fileRef = getFileRefByFilename(getFilenameFromInput());
+		fileRef.delete()
+			.then(function () {
+				console.log('File deleted successfully');
+			})
+			.catch(function (error) {
+				console.error('Uh-oh, an error occurred!:', error);
+			});
+	}
+</script>
+
+<input type="text" id="filename" name="filename" placeholder="Enter filename here..." />
+<button onclick="uploadFile();">Upload file by filename</button>
+<button onclick="deleteFile();">Delete file by filename</button>

@@ -1,0 +1,21 @@
+{
+  "name": "firebase-storage-functions-race-condition",
+  "version": "1.0.0",
+  "description": "Minimal, complete and verifiable exampmle showing firebase cloud storage functions race condition",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SvenSlijkoord/firebase-storage-functions-race-condition.git"
+  },
+  "author": "Sven Slijkoord",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SvenSlijkoord/firebase-storage-functions-race-condition/issues"
+  },
+  "homepage": "https://github.com/SvenSlijkoord/firebase-storage-functions-race-condition#readme",
+  "dependencies": {
+  }
+}
